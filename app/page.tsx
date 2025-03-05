@@ -128,7 +128,7 @@ export default function Index() {
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
               {/* <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">Boost your productivity, Start Fitness today.</h2> */}
-              <p className="mt-6 text-lg/8 text-pretty text-gray-300">Fitness now fits into your life - you can do a workout anywhere, anytime, using no equipment. It's up to you...</p>
+              <p className="mt-6 text-lg/8 text-pretty text-gray-300">Fitness now fits into your life - you can do a workout anywhere, anytime, using no equipment. It&apos;s up to you...</p>
 
             </div>
             <div className="relative mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-16 ">

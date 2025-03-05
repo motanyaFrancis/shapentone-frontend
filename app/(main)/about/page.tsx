@@ -73,7 +73,7 @@ const About: React.FC = () => {
                                     Why Choose Us
                                 </span>
                                 <h2 className="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
-                                    Shape N' Tone 360.
+                                    Shape N&apos; Tone 360.
                                 </h2>
                                 <p className="mb-5 text-base text-body-color dark:text-dark-6">
                                     Shape n Tone 360 is an industry leader in health and fitness with experienced professional personal trainers,nutritionists and health & wellness experts (boasting over 500,000 working hours)well-equipped with modern fitness training methods and nutritional knowledge to help you reach your goals and beyond.
