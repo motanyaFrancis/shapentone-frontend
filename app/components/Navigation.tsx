@@ -2,10 +2,11 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import clsx from "clsx";
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from "react";
-import clsx from "clsx";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type NavigationItem = {
     name: string;
@@ -14,10 +15,10 @@ type NavigationItem = {
 };
 
 const navigation: NavigationItem[] = [
-    { name: 'Home', href: '#', current: true },
+    { name: 'Home', href: '/', current: true },
     { name: 'About', href: '/about', current: false },
     { name: 'Programs', href: '#', current: false },
-    { name: 'Articles', href: '#', current: false },
+    { name: 'Articles', href: '/articles', current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -31,17 +32,31 @@ const MobileMenuButton = ({ open }: { open: boolean }) => (
     </DisclosureButton>
 );
 
-const NavLinks = () => (
-    <div className="hidden sm:ml-6 sm:block">
-        <div className="flex space-x-3">
-            {navigation.map((item) => (
-                <Link key={item.name} href={item.href} className={classNames(item.current ? 'text-lime-600' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-base font-bold')}>
-                    {item.name}
-                </Link>
-            ))}
+const NavLinks = () => {
+    const pathname = usePathname();
+
+    return (
+        <div className="hidden sm:ml-6 sm:block">
+            <div className="flex space-x-3">
+                {navigation.map((item) => {
+                    const isActive = pathname === item.href;
+                    return (
+                        <Link
+                            key={item.name}
+                            href={item.href}
+                            className={clsx(
+                                isActive ? "text-lime-600" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                "rounded-md px-3 py-2 text-base font-bold"
+                            )}
+                        >
+                            {item.name}
+                        </Link>
+                    );
+                })}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const UserProfileMenu = () => (
     <Menu as="div" className="relative ml-3">
